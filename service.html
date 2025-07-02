@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUCHIKOMi FARM - MEO機会損失 可視化シミュレーター</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px 0 rgba(236, 72, 153, 0.75);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px 0 rgba(236, 72, 153, 0.6);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .doughnut {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+        }
+        .doughnut-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .bar {
+            transition: height 0.5s ease-out;
+        }
+        /* Horizontal Scrolling Loop */
+        .scrolling-wrapper {
+            overflow: hidden;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+        }
+        .scrolling-content {
+            display: flex;
+            width: fit-content;
+            animation: scroll 40s linear infinite;
+        }
+        .scrolling-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .evidence-card {
+            flex-shrink: 0;
+            width: 280px;
+            margin: 0 1rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .evidence-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Hero Section -->
+    <header class="hero-bg py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop" alt="Googleマップでの機会損失を分析するビジネスパーソン" class="rounded-xl shadow-2xl mx-auto mb-8 w-full h-auto object-cover max-h-[400px]">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900" style="line-height: 1.3;">
+                そのGoogleマップ<br>
+                <span class="gradient-text">毎月何人のお客様を</span><br>
+                逃していますか？
+            </h1>
+            <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+                ほんの少しの「順位」と「クチコミ」の差が、気づかぬうちに大きな機会損失に繋がっています。<br>
+                まずは、その「見えない損失」を数値で直視してみませんか？
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Problem Section -->
+        <section class="mb-20 md:mb-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">なぜ「順位」と「クチコミ」が<br class="md:hidden">ビジネスの生命線なのか？</h2>
+            <p class="text-slate-500 mb-12 max-w-2xl mx-auto">現代の顧客は、スマートフォンを片手に店を探し、その場で来店を決めます。その意思決定の瞬間に、貴店は選ばれる準備ができていますか？</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg fade-in">
+                    <img src="https://images.unsplash.com/photo-1599658880115-a2ed6835c16f?q=80&w=1974&auto=format&fit=crop" alt="スマートフォンでマップを検索する人" class="rounded-lg mb-6 mx-auto w-full h-48 object-cover">
+                    <h3 class="text-xl font-bold my-4">Googleマップは「新しい店舗の顔」</h3>
+                    <p class="text-slate-600">ユーザーはGoogleマップで店を探し、評価を見て、その場で来店を決めます。ここでの印象が全てです。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg fade-in" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=2070&auto=format&fit=crop" alt="クチコミの星評価を示すアイコン群" class="rounded-lg mb-6 mx-auto w-full h-48 object-cover">
+                    <h3 class="text-xl font-bold my-4">クチコミは「デジタルの信頼」</h3>
+                    <p class="text-slate-600">件数と評価は、見込み客への強力な推薦状です。競合より少ない・低い場合、お客様は不安を感じます。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg fade-in" style="animation-delay: 0.4s;">
+                     <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="下降するビジネスグラフ" class="rounded-lg mb-6 mx-auto w-full h-48 object-cover">
+                    <h3 class="text-xl font-bold my-4">低い順位は「見えない壁」</h3>
+                    <p class="text-slate-600">順位が一つ違うだけで、見てもらえる回数（インプレッション）とクリック率に大きな差が生まれます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Infographics Section (Scrolling Loop) -->
+        <section class="mb-20 md:mb-32">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">シミュレーションを支える「不都合な真実」</h2>
+            <div class="scrolling-wrapper">
+                <div class="scrolling-content">
+                    <!-- Card Set 1 -->
+                    <a href="https://backlinko.com/local-seo-stats" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col text-center border-b-4 border-red-500">
+                        <span class="text-red-500 text-4xl font-bold">56%</span>
+                        <p class="font-semibold mt-2">ローカルパック外の機会損失</p>
+                        <p class="text-xs text-slate-500 mt-1">地域検索のクリックの半分以上は、ローカルパック外の店舗には届きません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Backlinko</p>
+                    </a>
+                    <a href="https://www.reviewtrackers.com/reports/online-reviews-survey/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center border-b-4 border-red-500">
+                        <span class="text-red-500 text-4xl font-bold">&lt; 4.0</span>
+                        <p class="font-semibold mt-2">顧客が避ける「評価の壁」</p>
+                        <p class="text-xs text-slate-500 mt-1">評価4.0未満のビジネスは、多くのユーザーに検討すらされません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: ReviewTrackers</p>
+                    </a>
+                    <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center border-b-4 border-amber-500">
+                        <span class="text-amber-500 text-4xl font-bold">101+</span>
+                        <p class="font-semibold mt-2">信頼を得るためのクチコミ件数</p>
+                        <p class="text-xs text-slate-500 mt-1">件数の多さは、人気と経験の証。この基準を超えていますか？</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: BrightLocal</p>
+                    </a>
+                    <a href="https://whitespark.ca/blog/google-local-pack-ctr-study/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-indigo-500 text-4xl font-bold">17.6%</span>
+                        <p class="font-semibold mt-2">ローカルパック1位のクリック率</p>
+                        <p class="text-xs text-slate-500 mt-1">競合はこの確率でクリックされています。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Whitespark</p>
+                    </a>
+                    <a href="https://whitespark.ca/blog/google-local-pack-ctr-study/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-slate-700 text-4xl font-bold">15.4%</span>
+                        <p class="font-semibold mt-2">ローカルパック2位のクリック率</p>
+                        <p class="text-xs text-slate-500 mt-1">貴店の現在地。1位との差はわずかではありません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Whitespark</p>
+                    </a>
+                    <a href="https://www.searchenginejournal.com/google-business-profile-ranking-factors/442229/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-indigo-500 text-4xl font-bold">+0.2%</span>
+                        <p class="font-semibold mt-2">クチコミ1件の価値</p>
+                        <p class="text-xs text-slate-500 mt-1">1件増えるごとに、見られる回数が複利で増えていきます。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Google/SEJ</p>
+                    </a>
+                    <!-- Card Set 2 (for looping) -->
+                    <a href="https://backlinko.com/local-seo-stats" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col text-center border-b-4 border-red-500">
+                        <span class="text-red-500 text-4xl font-bold">56%</span>
+                        <p class="font-semibold mt-2">ローカルパック外の機会損失</p>
+                        <p class="text-xs text-slate-500 mt-1">地域検索のクリックの半分以上は、ローカルパック外の店舗には届きません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Backlinko</p>
+                    </a>
+                    <a href="https://www.reviewtrackers.com/reports/online-reviews-survey/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center border-b-4 border-red-500">
+                        <span class="text-red-500 text-4xl font-bold">&lt; 4.0</span>
+                        <p class="font-semibold mt-2">顧客が避ける「評価の壁」</p>
+                        <p class="text-xs text-slate-500 mt-1">評価4.0未満のビジネスは、多くのユーザーに検討すらされません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: ReviewTrackers</p>
+                    </a>
+                    <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center border-b-4 border-amber-500">
+                        <span class="text-amber-500 text-4xl font-bold">101+</span>
+                        <p class="font-semibold mt-2">信頼を得るためのクチコミ件数</p>
+                        <p class="text-xs text-slate-500 mt-1">件数の多さは、人気と経験の証。この基準を超えていますか？</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: BrightLocal</p>
+                    </a>
+                    <a href="https://whitespark.ca/blog/google-local-pack-ctr-study/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-indigo-500 text-4xl font-bold">17.6%</span>
+                        <p class="font-semibold mt-2">ローカルパック1位のクリック率</p>
+                        <p class="text-xs text-slate-500 mt-1">競合はこの確率でクリックされています。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Whitespark</p>
+                    </a>
+                    <a href="https://whitespark.ca/blog/google-local-pack-ctr-study/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-slate-700 text-4xl font-bold">15.4%</span>
+                        <p class="font-semibold mt-2">ローカルパック2位のクリック率</p>
+                        <p class="text-xs text-slate-500 mt-1">貴店の現在地。1位との差はわずかではありません。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Whitespark</p>
+                    </a>
+                    <a href="https://www.searchenginejournal.com/google-business-profile-ranking-factors/442229/" target="_blank" rel="noopener noreferrer" class="evidence-card bg-white p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-indigo-500 text-4xl font-bold">+0.2%</span>
+                        <p class="font-semibold mt-2">クチコミ1件の価値</p>
+                        <p class="text-xs text-slate-500 mt-1">1件増えるごとに、見られる回数が複利で増えていきます。</p>
+                        <p class="text-xs text-slate-400 mt-auto pt-2">出典: Google/SEJ</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Section -->
+        <section id="simulator" class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 md:p-10 rounded-2xl shadow-2xl mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">機会損失シミュレーター</h2>
+                <p class="text-slate-400 mt-2">貴店の数値を入力し、競合に流れている「本当の顧客数」を算出します。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 bg-slate-900/50 p-6 md:p-8 rounded-xl">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2 border-l-4 border-indigo-500 pl-3">貴店の現状（月次データ）</h3>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="clientRank" class="text-sm font-medium text-slate-300">表示順位</label>
+                                <input type="number" id="clientRank" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="2">
+                            </div>
+                            <div>
+                                <label for="clientImpressions" class="text-sm font-medium text-slate-300">インプレッション数</label>
+                                <input type="number" id="clientImpressions" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="10000">
+                            </div>
+                            <div>
+                                <label for="clientInteractions" class="text-sm font-medium text-slate-300">インタラクション数</label>
+                                <input type="number" id="clientInteractions" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="300">
+                            </div>
+                            <div>
+                                <label for="clientVisits" class="text-sm font-medium text-slate-300">来店数（成果数）</label>
+                                <input type="number" id="clientVisits" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="50">
+                            </div>
+                            <div>
+                                <label for="clientReviews" class="text-sm font-medium text-slate-300">クチコミ件数</label>
+                                <input type="number" id="clientReviews" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="55">
+                            </div>
+                            <div>
+                                <label for="clientRating" class="text-sm font-medium text-slate-300">評点</label>
+                                <input type="number" step="0.1" id="clientRating" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="4.8">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2 border-l-4 border-pink-500 pl-3">比較対象の競合の状況</h3>
+                         <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="competitorRank" class="text-sm font-medium text-slate-300">表示順位</label>
+                                <input type="number" id="competitorRank" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="1">
+                            </div>
+                            <div>
+                                <label for="competitorReviews" class="text-sm font-medium text-slate-300">クチコミ件数</label>
+                                <input type="number" id="competitorReviews" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="150">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="competitorRating" class="text-sm font-medium text-slate-300">評点</label>
+                                <input type="number" step="0.1" id="competitorRating" class="mt-1 block w-full rounded-md bg-slate-700 border-slate-600 text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="4.9">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="calculateBtn" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors">損失を計算し、グラフを更新する</button>
+                </div>
+                <div class="bg-slate-800/70 p-6 rounded-lg flex flex-col justify-center items-center">
+                    <div id="result-placeholder" class="text-center text-slate-500 hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        <p class="mt-2">左のフォームに数値を入力してください。</p>
+                    </div>
+                    <div id="result-display" class="text-center fade-in">
+                        <p class="text-lg text-slate-400">もし貴店が競合のパフォーマンスなら...</p>
+                        <p class="text-5xl md:text-7xl font-black my-4 text-red-500">
+                            <span id="lostVisitsResult"></span>人
+                        </p>
+                        <p class="text-lg font-bold text-white">のお客様を、毎月「新しく」獲得できていた可能性があります。</p>
+                        <hr class="my-6 border-slate-700">
+                        <div class="text-left w-full space-y-2">
+                            <h4 class="font-bold text-center mb-2 text-white">損失の内訳</h4>
+                            <p class="text-sm text-slate-400 flex justify-between">失われたインタラクション数: <span id="lostInteractionsResult" class="font-bold text-white"></span>件</p>
+                            <p class="text-sm text-slate-400 flex justify-between">競合の推定クリック数: <span id="competitorClicksResult" class="font-bold text-white"></span>回</p>
+                            <p class="text-sm text-slate-400 flex justify-between">競合の推定インプレッション数: <span id="competitorImpressionsResult" class="font-bold text-white"></span>回</p>
+                        </div>
+                    </div>
+                     <div id="error-message" class="hidden text-center text-red-500 font-bold fade-in"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Visualization Section -->
+        <section id="dynamic-visualization" class="mb-20 md:mb-32 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">あなたの現状と競合との「差」</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- CTR Gap Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M5.834 7.409l-1.591-1.591M4.5 10.5H2.25m3.334 7.091l-1.591 1.591M12 21.75V19.5m5.834-7.091l1.591 1.591" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">順位によるクリック率の格差</h3>
+                    </div>
+                    <div class="flex-grow flex justify-around items-end h-40">
+                        <div class="text-center">
+                            <div id="competitor-bar" class="w-16 bg-indigo-500 rounded-t-lg bar"></div>
+                            <p id="competitor-label" class="text-sm font-bold mt-2"></p>
+                        </div>
+                        <div class="text-center">
+                            <div id="client-bar" class="w-16 bg-slate-300 rounded-t-lg bar"></div>
+                            <p id="client-label" class="text-sm font-bold mt-2"></p>
+                        </div>
+                    </div>
+                    <p id="ctr-gap-text" class="text-center mt-4 text-sm text-red-600 font-semibold"></p>
+                </div>
+                <!-- Review Count Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-amber-100 p-3 rounded-full mr-4">
+                           <svg class="h-6 w-6 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">信頼の指標：クチコミ件数</h3>
+                    </div>
+                    <div class="flex-grow flex flex-col justify-center">
+                        <div class="relative pt-1 mt-2">
+                            <div class="flex mb-2 items-center justify-between">
+                                <div><span id="review-count-label" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-indigo-600 bg-indigo-200"></span></div>
+                                <div class="text-right"><span class="text-xs font-semibold inline-block text-amber-600">信頼の基準: 101件</span></div>
+                            </div>
+                            <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-slate-200">
+                                <div id="review-progress-bar" style="width: 0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500 transition-all duration-500"></div>
+                                <div class="absolute h-6 w-1 bg-amber-500 rounded-full" style="left: calc(101 / 200 * 100%); top: 3.2rem;" title="信頼の基準: 101件"></div>
+                            </div>
+                        </div>
+                        <p id="review-gap-text" class="text-center mt-2 text-sm text-red-600 font-semibold"></p>
+                    </div>
+                </div>
+                <!-- Opportunity Donut Card -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+                    <div class="flex items-center mb-4">
+                         <div class="bg-pink-100 p-3 rounded-full mr-4">
+                           <svg class="h-6 w-6 text-pink-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 100 15 7.5 7.5 0 000-15z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.75 12.75L15.75 9.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.75 12.75L9.75 15.75" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800">ローカルパックの機会</h3>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center justify-center">
+                        <div class="doughnut" style="background: conic-gradient(#ef4444 0% 56%, #6366f1 56% 100%);">
+                            <div class="doughnut-text bg-white w-28 h-28 rounded-full flex items-center justify-center shadow-inner">
+                                <span class="text-red-500 text-4xl font-bold">56%</span>
+                            </div>
+                        </div>
+                         <div class="mt-4 text-center">
+                            <p class="text-sm"><span class="font-bold text-red-500">■ 56%</span>: パック外への損失</p>
+                            <p class="text-sm"><span class="font-bold text-indigo-500">■ 44%</span>: パック内での獲得機会</p>
+                            <p class="text-xs text-slate-500 mt-2">そもそも、この44%の土俵に上がれていますか？</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution & CTA Section -->
+        <section id="solution" class="text-center bg-white p-8 md:p-16 rounded-2xl shadow-xl">
+             <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-left mb-4">その機会損失、<br><span class="gradient-text">未来の利益に変えませんか？</span></h2>
+                    <p class="text-slate-500 mb-8 text-left">「見えない損失」の正体は、MEOと評判管理の欠如です。<br>私たち「KUCHIKOMi FARM」は、この2つの領域を専門的に改善し、貴店の成長を加速させます。</p>
+                    <div class="space-y-6">
+                         <div class="bg-slate-50 p-6 rounded-lg border-l-4 border-indigo-500 text-left">
+                             <h3 class="text-xl font-bold mb-3">1. レピュテーション（評判）の強化</h3>
+                             <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                                 <li>満足したお客様からクチコミを依頼する仕組みを構築する</li>
+                                 <li>全てのクチコミに丁寧に返信し、誠実さを示す</li>
+                                 <li>高評価をウェブサイト等で活用し、信頼を増幅させる</li>
+                             </ul>
+                         </div>
+                         <div class="bg-slate-50 p-6 rounded-lg border-l-4 border-pink-500 text-left">
+                             <h3 class="text-xl font-bold mb-3">2. ランキング要因の改善 (MEO)</h3>
+                             <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                                 <li>Googleビジネスプロフィール情報を100%最適化する</li>
+                                 <li>オンライン上の店舗情報（名前・住所・電話）を統一する</li>
+                                 <li>地域に関連した情報を発信し、専門性を示す</li>
+                             </ul>
+                         </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="KUCHIKOMi FARMのコンサルタントが顧客と相談している様子" class="rounded-xl shadow-2xl mx-auto w-full h-auto object-cover max-h-[600px]">
+                    <p class="text-xl font-bold mt-6">もうこれ以上、大切なお客様を競合に渡し続けるのはやめましょう。</p>
+                    <a href="#contact" class="mt-4 inline-block bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold text-lg py-4 px-10 rounded-full cta-button">
+                        「KUCHIKOMi FARM」の無料相談を予約する
+                    </a>
+                    <p class="text-xs text-slate-400 mt-4">ご相談は無料です。無理な営業は一切いたしません。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-slate-800 text-slate-400 text-center py-8">
+        <p>&copy; 2025 KUCHIKOMi FARM. All Rights Reserved.</p>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultPlaceholder = document.getElementById('result-placeholder');
+            const resultDisplay = document.getElementById('result-display');
+            const errorMessage = document.getElementById('error-message');
+            const dynamicVisualizationSection = document.getElementById('dynamic-visualization');
+
+            // --- Input Fields ---
+            const inputs = {
+                clientRank: document.getElementById('clientRank'),
+                clientImpressions: document.getElementById('clientImpressions'),
+                clientInteractions: document.getElementById('clientInteractions'),
+                clientVisits: document.getElementById('clientVisits'),
+                clientReviews: document.getElementById('clientReviews'),
+                clientRating: document.getElementById('clientRating'),
+                competitorRank: document.getElementById('competitorRank'),
+                competitorReviews: document.getElementById('competitorReviews'),
+                competitorRating: document.getElementById('competitorRating'),
+            };
+
+            // --- Helper Functions ---
+            function getCtrByRank(rank) {
+                switch (rank) {
+                    case 1: return 0.176;
+                    case 2: return 0.154;
+                    case 3: return 0.151;
+                    default: return 0.05;
+                }
+            }
+
+            function updateVisualizations(currentData) {
+                // --- 1. CTR Gap Bar Chart ---
+                const clientBar = document.getElementById('client-bar');
+                const competitorBar = document.getElementById('competitor-bar');
+                const clientLabel = document.getElementById('client-label');
+                const competitorLabel = document.getElementById('competitor-label');
+                const ctrGapText = document.getElementById('ctr-gap-text');
+
+                const clientCtr = getCtrByRank(currentData.clientRank);
+                const competitorCtr = getCtrByRank(currentData.competitorRank);
+                
+                const maxBarHeight = 160; // in pixels
+                clientBar.style.height = `${clientCtr * (maxBarHeight / 0.2)}px`;
+                competitorBar.style.height = `${competitorCtr * (maxBarHeight / 0.2)}px`;
+
+                clientLabel.textContent = `貴店(${currentData.clientRank}位): ${(clientCtr * 100).toFixed(1)}%`;
+                competitorLabel.textContent = `競合(${currentData.competitorRank}位): ${(competitorCtr * 100).toFixed(1)}%`;
+
+                const gap = Math.abs(clientCtr - competitorCtr);
+                ctrGapText.innerHTML = `この<span class="text-lg font-bold">${(gap * 100).toFixed(1)}%p</span>の差が、機会損失の始まりです。`;
+
+                // --- 2. Review Count Progress Bar ---
+                const reviewProgressBar = document.getElementById('review-progress-bar');
+                const reviewCountLabel = document.getElementById('review-count-label');
+                const reviewGapText = document.getElementById('review-gap-text');
+                const trustGoal = 101;
+                
+                const progressPercentage = Math.min((currentData.clientReviews / (trustGoal * 1.5)) * 100, 100);
+                reviewProgressBar.style.width = `${progressPercentage}%`;
+                reviewCountLabel.textContent = `貴店の現在地: ${currentData.clientReviews}件`;
+
+                const reviewGap = trustGoal - currentData.clientReviews;
+                if (reviewGap > 0) {
+                    reviewGapText.textContent = `「信頼の基準」まで、あと${reviewGap}件足りません。`;
+                } else {
+                    reviewGapText.textContent = `素晴らしい！信頼の基準をクリアしています。`;
+                }
+            }
+
+            function performCalculation() {
+                const currentData = {};
+                for (const key in inputs) {
+                    currentData[key] = parseFloat(inputs[key].value || inputs[key].placeholder);
+                }
+
+                if (Object.values(currentData).some(val => isNaN(val))) {
+                    errorMessage.textContent = 'すべての項目に有効な数値を入力してください。';
+                    errorMessage.classList.remove('hidden');
+                    resultDisplay.classList.add('hidden');
+                    resultPlaceholder.classList.remove('hidden');
+                    return false;
+                }
+                if (currentData.clientImpressions <= 0 || currentData.clientInteractions < 0 || currentData.clientVisits < 0 || currentData.clientRank <= 0 || currentData.competitorRank <= 0) {
+                    errorMessage.textContent = '順位、インプレッション数、インタラクション数、来店数は0より大きい数値を入力してください。';
+                    errorMessage.classList.remove('hidden');
+                    return false;
+                }
+
+                errorMessage.classList.add('hidden');
+
+                const COEFFICIENTS = {
+                    IMPRESSION_BOOST_PER_REVIEW: 0.002,
+                    RATING_CTR_MULTIPLIER: 1.05,
+                    RATING_CVR_MULTIPLIER: 1.05,
+                };
+
+                const reviewDifference = currentData.competitorReviews - currentData.clientReviews;
+                const impressionBoost = reviewDifference > 0 ? reviewDifference * COEFFICIENTS.IMPRESSION_BOOST_PER_REVIEW : 0;
+                const competitorImpressions = currentData.clientImpressions * (1 + impressionBoost);
+
+                const clientCtr = getCtrByRank(currentData.clientRank);
+                const competitorCtr = getCtrByRank(currentData.competitorRank);
+                
+                const clientEstimatedClicks = currentData.clientImpressions * clientCtr;
+                const competitorEstimatedClicks = competitorImpressions * competitorCtr * (currentData.competitorRating > currentData.clientRating ? COEFFICIENTS.RATING_CTR_MULTIPLIER : 1);
+
+                const clientClickToInteractionCVR = clientEstimatedClicks > 0 ? currentData.clientInteractions / clientEstimatedClicks : 0;
+                const clientInteractionToVisitCVR = currentData.clientInteractions > 0 ? currentData.clientVisits / currentData.clientInteractions : 0;
+
+                const competitorEstimatedInteractions = competitorEstimatedClicks * clientClickToInteractionCVR * (currentData.competitorRating > currentData.clientRating ? COEFFICIENTS.RATING_CVR_MULTIPLIER : 1);
+                const competitorEstimatedVisits = competitorEstimatedInteractions * clientInteractionToVisitCVR;
+
+                const lostInteractions = Math.round(competitorEstimatedInteractions - currentData.clientInteractions);
+                const lostVisits = Math.round(competitorEstimatedVisits - currentData.clientVisits);
+
+                document.getElementById('lostVisitsResult').textContent = lostVisits > 0 ? lostVisits.toLocaleString() : 0;
+                document.getElementById('lostInteractionsResult').textContent = lostInteractions > 0 ? lostInteractions.toLocaleString() : 0;
+                document.getElementById('competitorClicksResult').textContent = Math.round(competitorEstimatedClicks).toLocaleString();
+                document.getElementById('competitorImpressionsResult').textContent = Math.round(competitorImpressions).toLocaleString();
+
+                resultPlaceholder.classList.add('hidden');
+                resultDisplay.classList.remove('hidden');
+
+                return currentData;
+            }
+            
+            // --- Initial Load ---
+            const initialData = performCalculation();
+            if(initialData) {
+                updateVisualizations(initialData);
+            }
+
+            // --- Event Listener ---
+            calculateBtn.addEventListener('click', () => {
+                const currentData = performCalculation();
+                if(currentData) {
+                    updateVisualizations(currentData);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
