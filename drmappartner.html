@@ -62,6 +62,13 @@
         details > summary::-webkit-details-marker {
             display: none;
         }
+        .testimonial-quote {
+            background-color: #f7fafc; /* gray-100 */
+            border-left: 4px solid #4299e1; /* blue-500 */
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 0.25rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -143,8 +150,12 @@
                         <label class="ml-3 text-gray-700">経営の「面倒な部分」は専門家に任せ、診療に集中したい</label>
                     </div>
                 </div>
-                <div class="mt-8 text-center">
+                <div class="mt-8 text-center max-w-2xl mx-auto">
                     <p class="text-lg font-bold">そのお悩み、根本原因は<span class="text-red-500">「ネット上の評判」</span>と<span class="text-red-500">「現実の医院の価値」</span>のズレにあります。</p>
+                    <div class="testimonial-quote text-left">
+                        <p class="text-gray-700">"以前は口コミを気にしないようにしていましたが、心のどこかでずっと重荷でした。今は専門家にお任せできている安心感で、精神的に非常に楽になり、診療に集中できています。"</p>
+                        <p class="mt-2 font-bold text-sm text-right text-gray-800">C皮膚科クリニック様（東京都）</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -159,21 +170,21 @@
                 </div>
                 <div class="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div class="bg-slate-700 rounded-lg p-8 text-center">
-                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                         </div>
                         <h3 class="font-bold text-xl mt-4">先生の「感情」を守る</h3>
                         <p class="text-slate-300 mt-2 text-sm">心無い評価による精神的負担から解放され、本来の診療に全集中できる環境を整えます。</p>
                     </div>
                     <div class="bg-slate-700 rounded-lg p-8 text-center">
-                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
                         <h3 class="font-bold text-xl mt-4">スタッフの心理的安全性を創出</h3>
                         <p class="text-slate-300 mt-2 text-sm">感謝の声で溢れる職場は、スタッフの定着率を高め、採用活動も有利に進められます。</p>
                     </div>
                     <div class="bg-slate-700 rounded-lg p-8 text-center">
-                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-sky-500/20 mx-auto flex items-center justify-center mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
                         </div>
                         <h3 class="font-bold text-xl mt-4">医院のブランド価値を確立</h3>
@@ -237,6 +248,7 @@
                     <h2 class="text-3xl md:text-4xl font-noto font-bold text-gray-800">導入いただいた先生方から<br><span class="text-blue-600">喜びの声</span>が届いています</h2>
                 </div>
                 <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
                     <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
                         <div class="flex items-center">
                             <img src="https://placehold.co/100x100/d1d5db/374151?text=A院長" alt="A眼科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
@@ -247,6 +259,7 @@
                         </div>
                         <p class="mt-4 text-gray-700 flex-grow">"何より、スタッフが明るく、誇りを持って働いてくれるようになったのが一番の成果です。以前は数件のネガティブな口コミが目立っていましたが、今では患者様からの感謝の声で溢れています。"</p>
                     </div>
+                    <!-- Testimonial 2 -->
                     <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
                         <div class="flex items-center">
                             <img src="https://placehold.co/100x100/d1d5db/374151?text=B院長" alt="B歯科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
@@ -257,6 +270,7 @@
                         </div>
                         <p class="mt-4 text-gray-700 flex-grow">"採用面接で『口コミを見て、雰囲気が良さそうだと感じました』と言われることが増えました。ネットの評判が、これほど採用に影響するとは驚きです。本当に導入して良かった。"</p>
                     </div>
+                    <!-- Testimonial 3 -->
                     <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
                         <div class="flex items-center">
                             <img src="https://placehold.co/100x100/d1d5db/374151?text=C院長" alt="C皮膚科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
@@ -266,6 +280,39 @@
                             </div>
                         </div>
                         <p class="mt-4 text-gray-700 flex-grow">"以前は口コミを気にしないようにしていましたが、心のどこかでずっと重荷でした。今は専門家にお任せできている安心感で、精神的に非常に楽になり、診療に集中できています。"</p>
+                    </div>
+                    <!-- Testimonial 4 (New) -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/100x100/d1d5db/374151?text=D院長" alt="D内科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">D内科クリニック様</h4>
+                                <p class="text-sm text-gray-500">愛知県</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-700 flex-grow">「スタッフに口コミの悪いところで働きたくない」と辞められてしまった経験があり、藁にもすがる思いで相談しました。今では評価も安定し、スタッフの定着率も改善。本当に感謝しています。</p>
+                    </div>
+                    <!-- Testimonial 5 (New) -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/100x100/d1d5db/374151?text=E院長" alt="E耳鼻咽喉科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">E耳鼻咽喉科様</h4>
+                                <p class="text-sm text-gray-500">福岡県</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-700 flex-grow">月額費用は決して安くはありませんが、スタッフ1名分の人件費と考えれば、評判管理から採用ブランディングまで担ってもらえるのは破格。賢明な投資だと判断しました。</p>
+                    </div>
+                     <!-- Testimonial 6 (New) -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/100x100/d1d5db/374151?text=F院長" alt="F整形外科クリニック院長の写真" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">F整形外科様</h4>
+                                <p class="text-sm text-gray-500">北海道</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-700 flex-grow">自分でも色々試しましたが、時間ばかりかかって効果は今ひとつ。専門家にお任せするのが一番の近道だと実感しました。もっと早く相談すればよかったです。</p>
                     </div>
                 </div>
             </div>
