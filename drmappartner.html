@@ -69,6 +69,9 @@
             margin-top: 1.5rem;
             border-radius: 0.25rem;
         }
+        #checklist-cta {
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -124,32 +127,45 @@
                     <h2 class="text-3xl md:text-4xl font-noto font-bold text-gray-800">先生、<br class="sm:hidden"><span class="text-blue-600">1つでも当てはまりませんか？</span></h2>
                     <p class="mt-4 text-gray-600">もし1つでも当てはまるなら、私たちがお力になれるかもしれません。</p>
                 </div>
-                <div class="mt-12 max-w-2xl mx-auto bg-blue-50 border-2 border-blue-200 rounded-lg p-8 space-y-4">
+                <div id="checklist-container" class="mt-12 max-w-2xl mx-auto bg-blue-50 border-2 border-blue-200 rounded-lg p-8 space-y-4">
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">真摯な診療が、些細な誤解で低評価にされてしまう</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">真摯な診療が、些細な誤解で低評価にされてしまう</label>
                     </div>
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">ネットの評判をスタッフが気にし、院内の雰囲気が悪くなっている</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">ネットの評判をスタッフが気にし、院内の雰囲気が悪くなっている</label>
                     </div>
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">採用面接で、応募者に「口コミを見ました」と言われドキッとした</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">採用面接で、応募者に「口コミを見ました」と言われドキッとした</label>
                     </div>
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">スタッフの離職率が高い、または定着に課題を感じている</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">スタッフの離職率が高い、または定着に課題を感じている</label>
                     </div>
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">患者数を増やすことより、今の患者さんとスタッフを大切にしたい</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">患者数を増やすことより、今の患者さんとスタッフを大切にしたい</label>
                     </div>
                     <div class="flex items-start">
-                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1" disabled>
-                        <label class="ml-3 text-gray-700">経営の「面倒な部分」は専門家に任せ、診療に集中したい</label>
+                        <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-blue-600 focus:ring-blue-500 mt-1 cursor-pointer">
+                        <label class="ml-3 text-gray-700 cursor-pointer">経営の「面倒な部分」は専門家に任せ、診療に集中したい</label>
                     </div>
                 </div>
+                
+                <!-- Dynamic CTA -->
+                <div id="checklist-cta" class="mt-8 text-center max-w-2xl mx-auto" style="display: none;">
+                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-md">
+                        <p class="font-bold">多くの先生が同じ悩みを抱えています。</p>
+                        <p>そのお悩み、私たちに解決させてください。今すぐご相談いただくことで、心の平穏を取り戻す第一歩を踏み出せます。</p>
+                    </div>
+                    <a href="#cta" class="mt-6 cta-button line-button text-white font-bold py-3 px-8 rounded-full text-lg inline-flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 h-6 w-6"><path d="M14.5 10.5c.1.3.1.7.1 1.1 0 1.9-1.1 3.5-3.3 3.5h-1c-2.2 0-3.3-1.6-3.3-3.5S8 8.1 10.2 8.1h.8c.4 0 .7.1 1 .1"></path><path d="M18.4 14.2c.1-.2.2-.4.2-.6 0-2.3-1.3-4-3.5-4H13V8.8c0-2.3 1.3-4.1 3.5-4.1.9 0 1.7.3 2.3.8"></path></svg>
+                        <span>今すぐ順番待ちに登録する</span>
+                    </a>
+                </div>
+
                 <div class="mt-8 text-center max-w-2xl mx-auto">
                     <p class="text-lg font-bold">そのお悩み、根本原因は<span class="text-red-500">「ネット上の評判」</span>と<span class="text-red-500">「現実の医院の価値」</span>のズレにあります。</p>
                     <div class="testimonial-quote text-left">
@@ -610,8 +626,8 @@
     </footer>
 
     <script>
+        // Fade-in animation for sections
         const sections = document.querySelectorAll('.fade-in-section');
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -622,7 +638,6 @@
             rootMargin: '0px',
             threshold: 0.1
         });
-
         sections.forEach(section => {
             observer.observe(section);
         });
@@ -639,6 +654,26 @@
                     icon.style.transform = 'rotate(0deg)';
                 }
             });
+        });
+
+        // Checklist CTA logic
+        const checklistContainer = document.getElementById('checklist-container');
+        const checkboxes = checklistContainer.querySelectorAll('input[type="checkbox"]');
+        const checklistCta = document.getElementById('checklist-cta');
+
+        checklistContainer.addEventListener('change', () => {
+            let checkedCount = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkedCount++;
+                }
+            });
+
+            if (checkedCount >= 2) {
+                checklistCta.style.display = 'block';
+            } else {
+                checklistCta.style.display = 'none';
+            }
         });
     </script>
 </body>
