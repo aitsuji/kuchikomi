@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特典コンテンツ | 公式サイト</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * ===================================================================
+         * 1. ROOT & VARIABLES
+         * - Color palette, font settings, and other global variables.
+         * ===================================================================
+         */
+        :root {
+            /* Primary Colors */
+            --primary-color: #4dd0e1;
+            --primary-color-dark: #26c6da;
+
+            /* Secondary Colors */
+            --secondary-color: #ff8c00;
+            --secondary-color-light: #ffb74d;
+
+            /* Background Colors */
+            --background-light: #fafbfc;
+            --background-pattern-color: rgba(224, 247, 250, 0.7);
+
+            /* Text Colors */
+            --text-dark: #2c3e50;
+            --text-medium: #5a6c7d;
+            --text-light: #8b9aab;
+            --white: #ffffff;
+
+            /* Borders and Gradients */
+            --border-color: #e8f4f8;
+            --cta-gradient-start: #00d9ff;
+            --cta-gradient-end: #4988f0;
+            --ribbon-color: #62c3c4;
+
+            /* Component-specific Colors */
+            --tag-purpose-bg: #fff0e1;
+            --tag-purpose-text: #ff8c00;
+        }
+
+        /*
+         * ===================================================================
+         * 2. BASE & TYPOGRAPHY STYLES
+         * - General reset and default styles for the body and typography.
+         * ===================================================================
+         */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /*
+         * ===================================================================
+         * 3. LAYOUT STRUCTURE
+         * - Main layout containers like header, sections, grid, and footer.
+         * ===================================================================
+         */
+        .background-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape1,
+        .shape2 {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .shape1 {
+            width: 800px;
+            height: 800px;
+            top: -350px;
+            left: -300px;
+            background: radial-gradient(circle, var(--background-pattern-color) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .shape2 {
+            width: 900px;
+            height: 900px;
+            top: 100px;
+            right: -400px;
+            background: radial-gradient(circle, rgba(200, 230, 201, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .hero {
+            padding: 2rem;
+            background: transparent;
+            text-align: center;
+            position: relative;
+        }
+
+        .content-section {
+            padding: 4rem 2rem;
+            background: var(--background-light);
+            position: relative;
+        }
+
+        .content-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(90deg, var(--cta-gradient-start) 0%, var(--cta-gradient-end) 100%);
+            text-align: center;
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: #ecf0f1;
+            padding: 3rem 2rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /*
+         * ===================================================================
+         * 4. COMPONENTS
+         * - Reusable components like logos, buttons, cards, tags, etc.
+         * ===================================================================
+         */
+
+        /* 4.1 Logo Component */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            display: flex;
+            gap: 3px;
+        }
+
+        .logo-square {
+            width: 8px;
+            height: 8px;
+        }
+
+        .logo-square:nth-child(1) { background: var(--primary-color); }
+        .logo-square:nth-child(2) { background: var(--secondary-color-light); }
+        .logo-square:nth-child(3) { background: var(--primary-color); }
+        .logo-square:nth-child(4) { background: var(--secondary-color-light); }
+
+        .logo-text {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            letter-spacing: -0.02em;
+        }
+
+        /* 4.2 Hero Typography & Elements */
+        .hero-title {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .hero-title-highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-pre-title {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #ff6f00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+        
+        /* 4.3 Ribbon Component */
+        .ribbon-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .ribbon-banner {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--ribbon-color);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .ribbon-banner:before,
+        .ribbon-banner:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 23px 15px;
+        }
+
+        .ribbon-banner:before {
+            left: -30px;
+            border-color: var(--ribbon-color);
+            border-left-color: transparent;
+        }
+
+        .ribbon-banner:after {
+            right: -30px;
+            border-color: var(--ribbon-color);
+            border-right-color: transparent;
+        }
+
+        /* 4.4 Card Component */
+        .content-card {
+            background: var(--white);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .content-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .content-title {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.4;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-actions {
+            margin-top: auto;
+        }
+
+        /* 4.5 Tag Component */
+        .content-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+
+        .tag {
+            background: #e3f2fd;
+            color: var(--primary-color);
+            padding: 0.3rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tag.tag-purpose {
+            background: var(--tag-purpose-bg);
+            color: var(--tag-purpose-text);
+            font-weight: 600;
+        }
+        
+        /* 4.6 Button Component */
+        .btn {
+            display: block;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-color-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(77, 208, 225, 0.4);
+        }
+        
+        /* 4.7 CTA Section Elements */
+        .cta-title {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, var(--secondary-color-light) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+        }
+
+        /* 4.8 Footer Elements */
+        .footer-text {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .company-info {
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        /*
+         * ===================================================================
+         * 5. MEDIA QUERIES
+         * - Responsive adjustments for smaller screens.
+         * ===================================================================
+         */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .content-tags {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Decorative Shapes -->
+    <div class="background-shapes">
+        <div class="shape1"></div>
+        <div class="shape2"></div>
+    </div>
+
+    <!-- ===== HEADER Section ===== -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    <div class="logo-square"></div>
+                    <div class="logo-square"></div>
+                    <div class="logo-square"></div>
+                    <div class="logo-square"></div>
+                </div>
+                <span class="logo-text">株式会社メガネの金剛 マップパートナー事業部</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== HERO Section ===== -->
+    <section class="hero">
+        <p class="hero-pre-title">
+            客単価<span class="hero-highlight">155%</span><br>
+            新規数<span class="hero-highlight">220%</span>アップへ！
+        </p>
+        <h1 class="hero-title">
+            眼鏡店企業の<span class="hero-title-highlight">未来が変わる！</span>
+        </h1>
+        <div class="ribbon-container">
+             <div class="ribbon-banner">成果のために、12コの魔法のツールが必要です。</div>
+        </div>
+        <p class="hero-subtitle">メルマガ限定の眼鏡店専用資料・専用AIの数々をお楽しみください</p>
+    </section>
+
+    <!-- ===== CONTENT GRID Section ===== -->
+    <section class="content-section">
+        <div class="content-grid">
+            
+            <!-- Card 1: クチコミ依頼POP -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 01</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">客単価アップ</span>
+                            <span class="tag">口コミ促進</span>
+                            <span class="tag">店舗改善</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">眼鏡店専用POP | クチコミ依頼</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4nawuWP" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2: Googleマップチェックシート -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 02</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">新規集客</span>
+                            <span class="tag">MEO対策</span>
+                            <span class="tag">自己診断</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">Googleマップ 集客活用度チェック</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/3VVwLk8" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: HP作成ツール -->
+            <div class="content-card">
+                <div class="content-body">
+                     <div class="card-header">
+                        <p class="content-date">Tool 03</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">業務効率化</span>
+                            <span class="tag">Webサイト</span>
+                            <span class="tag">ツール比較</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">眼鏡店 “かんたん”ホームページ作成ツール３選</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/469qwPO" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: 予約システム -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 04</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">業務効率化</span>
+                            <span class="tag">予約システム</span>
+                            <span class="tag">ツール比較</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">眼鏡店が輝く！予約システム３選</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4mm4CxH" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: LINE活用メソッド -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 05</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">リピート対策</span>
+                            <span class="tag">LINE活用</span>
+                            <span class="tag">顧客関係</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">眼鏡店のLINE活用メソッド５選</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/3Vk7hgb" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: キーワードプランナー -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 06</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">新規集客</span>
+                            <span class="tag">MEO対策</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">キーワード選定のコツとキーワードプランナー</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/3Iqw8Mq" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: 10ステップチェック -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 07</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">新規集客</span>
+                            <span class="tag">リピート対策</span>
+                            <span class="tag">実践ガイド</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">自店で出来る10ステップ チェック</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4nzwZJQ" target="_blank" class="btn btn-primary">受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: 構造化データチェッカー -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 08</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">業務効率化</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">上級者向け</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">あなたのHPは対策済？構造化データチェッカー</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4mircXK" target="_blank" class="btn btn-primary">アクセスする</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: メタタグチェッカー -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 09</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">業務効率化</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">基礎知識</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">あなたのHPは対策済？メタタグチェッカー</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4mjLwrM" target="_blank" class="btn btn-primary">アクセスする</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10: 削除判定チェッカー -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 10</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">客単価アップ</span>
+                            <span class="tag">AI活用</span>
+                            <span class="tag">独自ツール</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">専用AI | 削除判定チェッカー</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4mgQTIf" target="_blank" class="btn btn-primary">AIを受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11: プロフ作成くん -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 11</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">業務効率化</span>
+                            <span class="tag">AI活用</span>
+                            <span class="tag">文章生成</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">専用AI | 眼鏡店専用 プロフ作成くん</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/4ntRV4M" target="_blank" class="btn btn-primary">AIを受け取る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12: 最新情報つくるくん -->
+            <div class="content-card">
+                <div class="content-body">
+                    <div class="card-header">
+                        <p class="content-date">Tool 12</p>
+                        <div class="content-tags">
+                            <span class="tag tag-purpose">新規集客</span>
+                            <span class="tag">AI活用</span>
+                            <span class="tag">情報発信</span>
+                        </div>
+                    </div>
+                    <h3 class="content-title">専用AI | 眼鏡店専用 最新情報つくるくん</h3>
+                    <div class="content-actions">
+                        <a href="https://bit.ly/3VTPTz4" target="_blank" class="btn btn-primary">AIを受け取る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA (Call to Action) Section ===== -->
+    <section class="cta-section">
+        <h2 class="cta-title">🚀 特典は続々追加予定！</h2>
+        <p class="cta-description">毎月新しいコンテンツを追加していきます。<br>最新情報はメルマガでチェック！</p>
+        <a href="#" class="cta-button">メルマガで最新情報をチェック</a>
+    </section>
+
+    <!-- ===== FOOTER Section ===== -->
+    <footer class="footer">
+        <p class="company-info">株式会社メガネの金剛 マップパートナー事業部</p>
+        <p class="footer-text">
+            〒599-8122 大阪府堺市東区丈六183-18 ダイエー北野田店1F<br>
+            &copy; 2025 mappartner @ megane no kongo
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
