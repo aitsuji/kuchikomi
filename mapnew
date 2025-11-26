@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【眼鏡店専用】Instagram投稿をGoogleビジネスプロフィールへ自動連携 - MapNew</title>
+    <meta name="description" content="眼鏡店の集客を変える。新作フレームや入荷情報をInstagramに投稿するだけで、Googleマップにも自動反映。MEO対策と業務効率化を同時に実現するMapNew。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F2C59',
+                        secondary: '#DAC0A3',
+                        accent: '#EAD196',
+                        action: '#10B981',
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-gray-800 bg-white">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex flex-col leading-none">
+                <a href="#" class="group">
+                    <span class="text-2xl font-bold text-primary tracking-tight">MapNew</span>
+                    <span class="text-[10px] text-slate-500 font-medium tracking-[0.2em] uppercase block group-hover:text-primary transition-colors">For Opticians</span>
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex gap-8 font-bold text-gray-600 text-sm">
+                <a href="#features" class="hover:text-primary transition-colors">機能</a>
+                <a href="#roadmap" class="hover:text-primary transition-colors">成功への道</a>
+                <a href="#price" class="hover:text-primary transition-colors">料金</a>
+            </nav>
+            
+            <!-- Link Updated -->
+            <a href="https://line.me/R/oaMessage/%40023lavzk/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E9%80%A3%E6%90%BA" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+                <i class="fa-brands fa-line text-lg"></i> 無料トライアル
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-24 px-4 overflow-hidden min-h-screen flex items-center">
+        <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-12">
+            
+            <!-- Left Content -->
+            <div class="md:w-5/12 text-center md:text-left z-10">
+                <span class="inline-block bg-white/10 border border-white/20 text-white px-4 py-1 rounded-full text-xs md:text-sm font-bold mb-6 shadow-sm backdrop-blur-sm">
+                    眼鏡店・オプトメトリスト向けMEO対策
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6 text-white font-serif tracking-wide">
+                    新作フレームの投稿、<br>
+                    <span class="gradient-text">Instagramだけで</span><br>
+                    終わっていませんか？
+                </h1>
+                <p class="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
+                    「インスタには毎日投稿しているのに、Googleマップは数ヶ月前のまま…」<br>
+                    MapNewなら、Instagramに投稿するだけでGoogleビジネスプロフィールも自動更新。<br>
+                    あなたの店の「こだわり」や「新作」を、<br>
+                    地域で検索している見込み客へダイレクトに届けます。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <!-- Link Updated -->
+                    <a href="https://line.me/R/oaMessage/%40023lavzk/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E9%80%A3%E6%90%BA" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-line text-3xl"></i> 
+                        <div class="text-left leading-tight">
+                            <span class="text-xs block opacity-90">LINEで簡単申し込み</span>
+                            1週間無料で試す
+                        </div>
+                    </a>
+                </div>
+                <p class="mt-4 text-sm text-gray-400">※LINEで「インスタ連携」と送ってください</p>
+            </div>
+
+            <!-- Right Content: Infographic -->
+            <div class="md:w-7/12 relative w-full flex justify-center">
+                 <div class="relative w-full max-w-xl mx-auto transform scale-90 md:scale-100 p-4 rounded-[3rem] shadow-[0_0_60px_-15px_rgba(255,255,255,0.3)] transition-transform hover:scale-[1.02] duration-500">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-full blur-3xl -z-10"></div>
+                    
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                        
+                        <!-- Left: Instagram Mockup -->
+                        <div class="relative bg-white p-3 md:p-4 rounded-[2rem] shadow-xl border-4 border-slate-100 w-full max-w-[240px] md:w-[260px] transform rotate-[-2deg] hover:rotate-0 transition duration-500">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 md:w-20 h-5 md:h-6 bg-slate-100 rounded-b-xl z-20"></div>
+                            <div class="absolute -top-3 -left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-[10px] md:text-xs font-bold shadow-sm flex items-center gap-1 z-30">
+                                <i class="fa-brands fa-instagram"></i>
+                                いつもの投稿
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[1.5rem] overflow-hidden border border-slate-100 relative">
+                                <div class="bg-white p-3 flex items-center justify-between border-b border-slate-100">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-chevron-left text-slate-400"></i>
+                                        <span class="font-bold text-xs md:text-sm text-slate-700">投稿を作成</span>
+                                    </div>
+                                    <span class="text-blue-500 font-bold text-xs md:text-sm">シェア</span>
+                                </div>
+                                <div class="p-3 space-y-3 bg-white">
+                                    <div class="flex gap-3">
+                                        <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-200 rounded-lg flex-shrink-0"></div>
+                                        <textarea class="w-full text-xs border-none resize-none focus:ring-0 p-0 text-slate-600 h-10 md:h-12 outline-none" placeholder="キャプションを入力..."></textarea>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div class="aspect-square bg-secondary/20 rounded-lg flex flex-col items-center justify-center p-1 relative overflow-hidden group">
+                                            <i class="fa-solid fa-glasses text-secondary text-lg md:text-xl mb-1"></i>
+                                            <span class="text-[8px] text-slate-500 font-bold">新作入荷!</span>
+                                            <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <i class="fa-solid fa-check text-action"></i>
+                                            </div>
+                                        </div>
+                                        <div class="aspect-square bg-blue-100/50 rounded-lg flex flex-col items-center justify-center p-1 relative overflow-hidden group">
+                                            <i class="fa-solid fa-screwdriver-wrench text-blue-400 text-lg md:text-xl mb-1"></i>
+                                            <span class="text-[8px] text-slate-500 font-bold">修理レポ</span>
+                                            <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <i class="fa-solid fa-check text-action"></i>
+                                            </div>
+                                        </div>
+                                        <div class="aspect-square bg-pink-100/50 rounded-lg flex flex-col items-center justify-center p-1 relative overflow-hidden group">
+                                            <i class="fa-regular fa-face-smile text-pink-400 text-lg md:text-xl mb-1"></i>
+                                            <span class="text-[8px] text-slate-500 font-bold">お客様の声</span>
+                                            <div class="absolute inset-0 bg-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <i class="fa-solid fa-check text-action"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-50 p-2 flex justify-around text-slate-400 text-lg md:text-xl border-t border-slate-100">
+                                    <i class="fa-solid fa-house"></i>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-regular fa-square-plus text-transparent bg-clip-text bg-gradient-to-tr from-purple-500 to-pink-500"></i>
+                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-circle-user"></i>
+                                </div>
+                                <div class="absolute inset-0 pointer-events-none border-[6px] border-slate-100 rounded-[1.5rem]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center: Sync Arrow -->
+                        <div class="flex flex-col items-center justify-center relative z-20 md:rotate-0 rotate-90 my-4 md:my-0 flex-shrink-0">
+                            <div class="w-14 h-14 md:w-20 md:h-20 bg-white rounded-full shadow-xl border-4 border-blue-50 flex items-center justify-center text-2xl md:text-3xl text-blue-500 relative animate-pulse-slow">
+                                <i class="fa-solid fa-bolt"></i>
+                                <div class="absolute -top-2 -right-2 bg-action text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Auto</div>
+                            </div>
+                            <div class="text-center mt-2 md:mt-4">
+                                <p class="text-white font-bold text-xs md:text-sm">自動連携</p>
+                                <i class="fa-solid fa-arrow-right-long text-blue-200 text-2xl md:text-4xl mt-1 hidden md:block"></i>
+                                <i class="fa-solid fa-arrow-down-long text-blue-200 text-2xl md:text-4xl mt-1 md:hidden"></i>
+                            </div>
+                        </div>
+
+                        <!-- Right: Google Maps Mockup -->
+                        <div class="relative bg-white p-3 md:p-4 rounded-[2rem] shadow-xl border-4 border-slate-100 w-full max-w-[240px] md:w-[260px] transform rotate-[2deg] hover:rotate-0 transition duration-500">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 md:w-20 h-5 md:h-6 bg-slate-100 rounded-b-xl z-20"></div>
+                            <div class="absolute -top-4 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-[10px] md:text-xs font-bold shadow-sm flex items-center gap-1 z-30">
+                                <i class="fa-brands fa-google"></i>
+                                自動で反映！
+                            </div>
+                             <div class="absolute -bottom-4 md:-bottom-6 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-blue-100 flex items-center gap-2 whitespace-nowrap animate-bounce z-40">
+                                <i class="fa-solid fa-location-dot text-red-500"></i>
+                                <span class="text-[10px] md:text-xs font-bold text-primary">地域のお客様に見つかる！</span>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[1.5rem] overflow-hidden border border-slate-100 relative h-full">
+                                <div class="bg-white p-3 border-b border-slate-100 relative">
+                                    <div class="w-full h-20 md:h-24 bg-slate-200 rounded-lg mb-6 md:mb-8 bg-[url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')] bg-cover bg-center"></div>
+                                    <div class="absolute top-16 md:top-20 left-4 w-14 h-14 md:w-16 md:h-16 bg-white rounded-full border-4 border-white shadow-sm flex items-center justify-center">
+                                        <i class="fa-solid fa-store text-primary text-xl md:text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div class="p-4 pt-2 bg-white space-y-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 leading-tight text-sm md:text-base">あなたの眼鏡店</h4>
+                                        <div class="text-xs text-orange-400 flex items-center gap-1">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                            <span class="text-slate-500">(4.8)</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-700 mb-2">最新情報</p>
+                                        <div class="flex gap-2 overflow-hidden">
+                                            <div class="w-20 md:w-24 flex-shrink-0 bg-slate-50 rounded-lg border border-slate-100 overflow-hidden animate-bounce-slow" style="animation-delay: 0.5s;">
+                                                <div class="aspect-square bg-secondary/20 flex items-center justify-center">
+                                                    <i class="fa-solid fa-glasses text-secondary"></i>
+                                                </div>
+                                                <div class="p-1.5">
+                                                    <p class="text-[8px] font-bold text-slate-700 truncate">新作入荷!</p>
+                                                    <p class="text-[6px] text-slate-400">本日</p>
+                                                </div>
+                                            </div>
+                                            <div class="w-20 md:w-24 flex-shrink-0 bg-slate-50 rounded-lg border border-slate-100 overflow-hidden animate-bounce-slow" style="animation-delay: 1s;">
+                                                <div class="aspect-square bg-blue-100/50 flex items-center justify-center">
+                                                    <i class="fa-solid fa-screwdriver-wrench text-blue-400"></i>
+                                                </div>
+                                                <div class="p-1.5">
+                                                    <p class="text-[8px] font-bold text-slate-700 truncate">修理レポ</p>
+                                                    <p class="text-[6px] text-slate-400">昨日</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-50 p-2 flex justify-around text-blue-500 text-sm border-t border-slate-100 font-bold">
+                                    <div class="flex flex-col items-center"><i class="fa-solid fa-diamond-turn-right text-base md:text-lg"></i><span class="text-[8px]">経路</span></div>
+                                    <div class="flex flex-col items-center"><i class="fa-solid fa-phone text-base md:text-lg"></i><span class="text-[8px]">通話</span></div>
+                                    <div class="flex flex-col items-center"><i class="fa-solid fa-share-nodes text-base md:text-lg"></i><span class="text-[8px]">共有</span></div>
+                                </div>
+                                <div class="absolute inset-0 pointer-events-none border-[6px] border-slate-100 rounded-[1.5rem]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">こんな「もったいない」ことしていませんか？</h2>
+                <div class="w-16 h-1 bg-accent mx-auto rounded"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl text-gray-400 mb-4 text-center"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-primary">更新の手間が2倍</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        入荷したフレームを撮影し、インスタに上げて、Googleマップを開いてまた上げて…。忙しい接客の合間には限界があります。
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl text-gray-400 mb-4 text-center"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-primary">Googleマップが放置気味</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        「近くの眼鏡屋」で検索されるのに、最新情報が数年前。これでは、お客様は大手チェーン店に流れてしまいます。
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl text-gray-400 mb-4 text-center"><i class="fa-solid fa-glasses"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-center text-primary">商品の魅力が伝わらない</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        文字だけの情報では、フレームのデザインや色味は伝わりません。写真がないと、来店のきっかけを失います。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Benefits -->
+    <section id="features" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Solution</span>
+                <h2 class="text-3xl font-bold text-gray-800 mt-2 font-serif">眼鏡店に MapNew が選ばれる理由</h2>
+            </div>
+
+            <!-- 01: MEO強化 -->
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto mb-24">
+                <div class="md:w-1/2 w-full">
+                    <!-- MEO Infographic -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden flex flex-col items-center justify-center h-full min-h-[300px]">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-100/50 to-transparent z-0"></div>
+                        <!-- Smartphone Mockup -->
+                        <div class="relative z-10 bg-slate-800 p-2 rounded-[2rem] shadow-xl w-40 h-72 mx-auto border-4 border-slate-300">
+                            <div class="bg-white rounded-[1.5rem] overflow-hidden h-full relative">
+                                <!-- Map Screen -->
+                                <div class="absolute inset-0 bg-blue-50 flex flex-col">
+                                    <div class="bg-blue-500 h-8 w-full mb-2"></div>
+                                    <div class="flex-1 p-2 space-y-2">
+                                        <!-- Search Result 1 -->
+                                        <div class="bg-white p-2 rounded-lg shadow-sm flex gap-2 items-center relative overflow-hidden">
+                                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500"><i class="fa-solid fa-store"></i></div>
+                                            <div class="flex-1">
+                                                <div class="w-2/3 h-2 bg-slate-200 rounded mb-1"></div>
+                                                <div class="flex gap-1 text-[8px] text-orange-400">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                                </div>
+                                            </div>
+                                            <div class="absolute -top-1 -right-1 bg-yellow-400 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm animate-bounce-slow">1</div>
+                                        </div>
+                                        <!-- Other Results -->
+                                        <div class="bg-white/50 p-2 rounded-lg flex gap-2 items-center opacity-50">
+                                            <div class="w-8 h-8 bg-slate-100 rounded-full"></div>
+                                            <div class="flex-1 space-y-1"><div class="w-1/2 h-2 bg-slate-200 rounded"></div><div class="w-1/3 h-2 bg-slate-200 rounded"></div></div>
+                                        </div>
+                                        <div class="bg-white/50 p-2 rounded-lg flex gap-2 items-center opacity-50">
+                                            <div class="w-8 h-8 bg-slate-100 rounded-full"></div>
+                                            <div class="flex-1 space-y-1"><div class="w-1/2 h-2 bg-slate-200 rounded"></div><div class="w-1/3 h-2 bg-slate-200 rounded"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Sync Indicator -->
+                                <div class="absolute bottom-4 right-4 bg-action text-white p-2 rounded-full shadow-lg animate-pulse-slow">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Arrows & Label -->
+                        <div class="absolute top-1/4 right-10 flex flex-col items-center z-20">
+                            <i class="fa-solid fa-arrow-trend-up text-4xl text-blue-500 mb-2 animate-bounce-slow"></i>
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">検索順位UP!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="text-5xl text-blue-200 font-bold mb-4 font-serif">01</div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">「更新の手間」をゼロにしてMEO強化</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        お店が忙しい中、Googleマップとインスタの両方を更新し続けるのは大変です。<br>
+                        インスタに投稿するだけでマップにも自動で載るようにすれば、手間をかけずに「いつも動いているお店」だとアピールできます。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> 毎回コピペする作業を削減</li>
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> 常に最新情報が載るから検索順位もUP</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 02: スタイルを売る -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 max-w-5xl mx-auto mb-24">
+                <div class="md:w-1/2 w-full">
+                    <!-- Style Infographic -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden flex items-center justify-center h-full min-h-[300px]">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-bl from-pink-100/50 to-transparent z-0"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center gap-4">
+                            <!-- Main Frame Image -->
+                            <div class="bg-white p-3 rounded-2xl shadow-xl border-4 border-pink-100 transform -rotate-6 z-20">
+                                <div class="aspect-[4/3] w-48 bg-pink-50 rounded-xl flex items-center justify-center relative overflow-hidden">
+                                    <i class="fa-solid fa-glasses text-6xl text-pink-300"></i>
+                                    <div class="absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm p-2 text-center">
+                                        <p class="text-xs font-bold text-pink-500">今週のスタイル提案</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Instagram Post Style -->
+                            <div class="bg-white p-2 rounded-xl shadow-md border border-slate-100 w-32 absolute top-4 right-8 transform rotate-12 z-10">
+                                <div class="flex items-center gap-1 mb-1">
+                                    <div class="w-4 h-4 bg-slate-200 rounded-full"></div>
+                                    <div class="w-16 h-1.5 bg-slate-200 rounded"></div>
+                                </div>
+                                <div class="aspect-square bg-slate-100 rounded-lg mb-1 flex items-center justify-center">
+                                    <i class="fa-regular fa-image text-slate-300"></i>
+                                </div>
+                                <div class="flex gap-1 text-pink-400 text-[8px]"><i class="fa-regular fa-heart"></i><i class="fa-regular fa-comment"></i></div>
+                            </div>
+                            
+                            <!-- Icons -->
+                            <div class="absolute bottom-6 left-6 flex gap-2 z-10">
+                                <div class="w-8 h-8 rounded-full bg-amber-700 border-2 border-white shadow-sm" title="べっ甲"></div>
+                                <div class="w-8 h-8 rounded-full bg-slate-800 border-2 border-white shadow-sm" title="マットブラック"></div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-400 to-purple-400 border-2 border-white shadow-sm" title="クリアカラー"></div>
+                            </div>
+
+                            <!-- Label -->
+                            <div class="absolute -bottom-2 right-4 bg-pink-500 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-md flex items-center gap-2 z-30">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> 世界観を伝える
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="text-5xl text-blue-200 font-bold mb-4 font-serif">02</div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">「スペック」ではなく「スタイル」を売る</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        眼鏡は医療器具であると同時に、顔の印象を決めるファッションアイテムです。<br>
+                        文字では伝わらない「質感」や「雰囲気」を写真や動画で直感的に伝えることで、「ここで買いたい！」という気持ちを作ります。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> 試着イメージを視覚で提案</li>
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> お店のセンスや世界観を伝える</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 03: 人柄を見せる -->
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
+                <div class="md:w-1/2 w-full">
+                    <!-- Staff/Service Infographic -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden flex flex-col items-center justify-center h-full min-h-[300px]">
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-100/50 to-transparent z-0"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center">
+                            <!-- Staff Icons -->
+                            <div class="flex gap-4 mb-6">
+                                <div class="flex flex-col items-center relative">
+                                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center border-4 border-white shadow-md mb-2 relative overflow-visible">
+                                        <i class="fa-solid fa-user-tie text-4xl text-green-600"></i>
+                                        <div class="absolute -top-4 -right-8 bg-white border-2 border-green-500 px-3 py-1 rounded-xl rounded-bl-none shadow-sm whitespace-nowrap animate-pulse-slow">
+                                            <p class="text-[10px] font-bold text-green-700">お似合いです！</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs font-bold text-slate-600">認定眼鏡士</p>
+                                </div>
+                                <div class="flex flex-col items-center relative">
+                                    <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center border-4 border-white shadow-md mb-2 relative overflow-visible">
+                                        <i class="fa-solid fa-user-pen text-4xl text-pink-500"></i>
+                                         <div class="absolute -top-4 -left-8 bg-white border-2 border-pink-400 px-3 py-1 rounded-xl rounded-br-none shadow-sm whitespace-nowrap animate-pulse-slow" style="animation-delay: 0.5s;">
+                                            <p class="text-[10px] font-bold text-pink-600">ご相談ください♪</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs font-bold text-slate-600">スタイリスト</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Connection Icons -->
+                            <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-slate-100 shadow-sm flex items-center gap-6">
+                                <div class="flex flex-col items-center gap-1 text-slate-500">
+                                    <i class="fa-regular fa-comments text-2xl"></i>
+                                    <span class="text-[10px]">丁寧な問診</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long text-green-300"></i>
+                                <div class="flex flex-col items-center gap-1 text-slate-500">
+                                    <i class="fa-solid fa-handshake-simple text-2xl"></i>
+                                    <span class="text-[10px]">信頼関係</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long text-green-300"></i>
+                                <div class="flex flex-col items-center gap-1 text-slate-500">
+                                    <i class="fa-solid fa-heart text-2xl text-pink-400"></i>
+                                    <span class="text-[10px]">ファン化</span>
+                                </div>
+                            </div>
+
+                            <!-- Label -->
+                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-5 py-1.5 rounded-full text-sm font-bold shadow-md flex items-center gap-2 z-30 whitespace-nowrap">
+                                <i class="fa-solid fa-door-open"></i> 来店のハードルを下げる
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="text-5xl text-blue-200 font-bold mb-4 font-serif">03</div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">「人柄」を見せて来店のハードルを下げる</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        ちょっといい眼鏡屋さんは、初めて入るのに勇気がいるものです。<br>
+                        普段からスタッフの顔や接客の様子を見せておくことで、「知っている人」のような安心感を作り、心の壁を取り払います。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> 「相談しやすさ」を事前に作る</li>
+                        <li class="flex items-center gap-3 text-sm font-bold text-gray-700"><i class="fa-solid fa-check text-green-500 text-lg"></i> 「あなたから買いたい」という指名を増やす</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Strategic Roadmap -->
+    <section id="roadmap" class="py-20 bg-gray-50">
+        <div class="w-full max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm">Roadmap</span>
+                <h2 class="text-3xl font-bold text-slate-800 mt-2 font-serif">愛されるお店になるための「正しい順序」</h2>
+                <p class="text-slate-600 mt-4">いきなり広告費をかける前に。まずは「信頼の土台」を作りましょう。</p>
+            </div>
+    
+            <div class="grid md:grid-cols-3 gap-8 relative mb-12">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -z-0 transform -translate-y-1/2"></div>
+    
+                <!-- Phase 1 -->
+                <div class="relative z-10 bg-white p-8 rounded-xl shadow-lg border-b-4 border-action group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-action text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl border-4 border-slate-50">1</div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">「土台」を作る</h3>
+                        <p class="text-xs font-bold text-action mb-4">MapNew導入フェーズ</p>
+                        <p class="text-slate-600 text-sm leading-relaxed text-left">
+                            まずは「情報が止まっている」状態を脱却。
+                            自動化ツールで、Web上の看板（Googleマップ）を常に最新に保ちます。
+                            お客様が「来店しても大丈夫」と思える安心感を作ります。
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Phase 2 -->
+                <div class="relative z-10 bg-white p-8 rounded-xl shadow-lg border-b-4 border-primary group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl border-4 border-slate-50">2</div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">「信頼」を貯める</h3>
+                        <p class="text-xs font-bold text-primary mb-4">来店・接客フェーズ</p>
+                        <p class="text-slate-600 text-sm leading-relaxed text-left">
+                            最新情報を見て来店されたお客様に、120点の接客（ギフト）を提供します。
+                            感動したお客様からの「クチコミ（応援）」が自然と集まり始めます。
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Phase 3 -->
+                <div class="relative z-10 bg-white p-8 rounded-xl shadow-lg border-b-4 border-secondary group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl border-4 border-slate-50">3</div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-bold text-primary mb-2">「ファン」と育つ</h3>
+                        <p class="text-xs font-bold text-secondary mb-4">資産化フェーズ</p>
+                        <p class="text-slate-600 text-sm leading-relaxed text-left">
+                            蓄積された投稿とクチコミが「資産」となり、広告費をかけなくてもお客様が集まる好循環へ。
+                            地域一番店としてのブランドが確立されます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center bg-blue-50 p-6 rounded-lg border border-blue-100 inline-block mx-auto max-w-2xl w-full">
+                <p class="text-slate-700 text-sm">
+                    <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i>
+                    <strong>MapNew</strong>は、この<strong>「Phase 1」</strong>を最小のコストと労力で突破するためのツールです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="price" class="w-full max-w-4xl mx-auto py-20 px-4">
+        <div class="relative bg-gradient-to-b from-slate-900 to-primary rounded-3xl p-1 md:p-1 shadow-2xl overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+            
+            <div class="bg-white rounded-[20px] p-8 md:p-16 text-center relative overflow-hidden">
+                <!-- Ribbon -->
+                <div class="absolute top-0 right-0">
+                    <div class="bg-action text-white text-xs font-bold px-12 py-1 transform rotate-45 translate-x-14 translate-y-6 shadow-md">
+                        1 WEEK FREE
+                    </div>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4 font-serif">
+                    スタッフへの「時間のプレゼント」<br>
+                    だと考えてください。
+                </h2>
+                <p class="text-slate-500 mb-10 text-sm">
+                    面倒な単純作業を月額わずかなコストで自動化し、<br>
+                    スタッフが本来の業務に輝ける時間を生み出します。
+                </p>
+
+                <div class="flex justify-center items-end gap-2 mb-4 text-slate-800">
+                    <span class="text-lg mb-4 font-bold">月額</span>
+                    <span class="text-7xl font-bold tracking-tighter font-serif">980</span>
+                    <div class="text-left mb-4">
+                        <span class="block text-xl font-bold">円</span>
+                        <span class="text-xs text-slate-400">(税込)</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 mb-10">※Googleビジネスプロフィール 1店舗あたり</p>
+
+                <!-- Benefits -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 text-sm max-w-2xl mx-auto">
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check text-action"></i>初期費用 0円
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check text-action"></i>契約期間縛りなし
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check text-action"></i>解約金なし
+                    </div>
+                </div>
+
+                <div class="text-center space-y-4">
+                    <!-- Link Updated -->
+                    <a href="https://line.me/R/oaMessage/%40023lavzk/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E9%80%A3%E6%90%BA" class="inline-block w-full md:w-auto bg-action hover:bg-emerald-600 text-white px-12 py-5 rounded-full font-bold text-xl transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3 mx-auto">
+                        <i class="fa-brands fa-line text-4xl"></i>
+                        <div class="text-left">
+                            <span class="block text-xs font-normal opacity-90">LINEで今すぐ開始</span>
+                            1週間無料で試してみる
+                        </div>
+                    </a>
+                    <p class="text-slate-400 text-xs">
+                        ※LINEで「インスタ連携」と送ってください
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">よくあるご質問</h2>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-xl p-4 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-gray-700 list-none select-none">
+                        <span>Q. 設定は難しいですか？</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        いいえ、とても簡単です。InstagramのアカウントとGoogleビジネスプロフィールの管理者権限があれば、約3分で連携設定が完了します。ITが苦手なオーナー様でも安心して導入いただけます。
+                    </p>
+                </details>
+                
+                <details class="group bg-white rounded-xl p-4 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-gray-700 list-none select-none">
+                        <span>Q. Googleマップのルールに違反する投稿はどうなりますか？</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        ご安心ください。Googleビジネスプロフィールの投稿ポリシー（動画不可、過度なハッシュタグNGなど）に適合しない内容は、システムが自動的に判別して連携をスキップ（除外）します。アカウント停止等のリスクを最小限に抑える安全設計となっています。
+                    </p>
+                </details>
+                
+                <details class="group bg-white rounded-xl p-4 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-gray-700 list-none select-none">
+                        <span>Q. InstagramやGoogleのID・パスワードを教える必要がありますか？</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        いいえ、IDとパスワードをお預かりすることは一切ありません。各プラットフォームの正規の「連携権限（編集権限）」を付与していただくだけで動作します。フルアクセスの権限をもらうわけではないので、乗っ取りなどのリスクはありませんし、いつでも連携を解除できるので安心です。
+                    </p>
+                </details>
+                
+                <details class="group bg-white rounded-xl p-4 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-gray-700 list-none select-none">
+                        <span>Q. 複数の店舗を運営していますが対応可能ですか？</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        はい、可能です。Googleビジネスプロフィール1店舗につき1契約（980円）となります。複数店舗のアカウントを一括管理することもできますので、多店舗展開されている眼鏡店様にも最適です。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section id="trial" class="py-20 bg-gradient-to-r from-blue-900 to-slate-900 text-white text-center px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">1週間の無料トライアルで<br>集客効果を体験してください</h2>
+            <p class="text-gray-300 mb-10">
+                リスクはゼロ。あなたの店の素敵なフレームを、<br>
+                Googleマップで探している地域のすべての人へ届けましょう。
+            </p>
+            
+            <div class="flex justify-center">
+                <!-- Link Updated -->
+                <a href="https://line.me/R/oaMessage/%40023lavzk/?%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E9%80%A3%E6%90%BA" class="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 flex items-center gap-3">
+                    <i class="fa-brands fa-line text-4xl"></i>
+                    <div class="text-left">
+                        <span class="block text-sm font-normal">LINEで簡単申し込み</span>
+                        「インスタ連携」と送るだけ
+                    </div>
+                </a>
+            </div>
+            <p class="mt-6 text-sm text-gray-400">※お申し込み後、すぐに設定ガイドをお送りします</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a>
+                <a href="#" class="hover:text-white transition-colors">利用規約</a>
+                <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+            </div>
+            
+            <div class="mb-8 border-t border-gray-800 pt-8">
+                <p class="mb-2 text-gray-600 text-[10px]">運営</p>
+                <div class="text-xs text-gray-500 leading-relaxed">
+                    <p>株式会社メガネの金剛</p>
+                    <p>マップパートナー事業部</p>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-gray-700">&copy; MapNew All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
